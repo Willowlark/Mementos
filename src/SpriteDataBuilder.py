@@ -11,8 +11,8 @@ def build_file(base_path='assets/Ann/'):
         grouped[prefix].append(x)
         
     # Generate DM
-    data_model = []
-    # data_model = {}
+    # data_model = []
+    data_model = {}
     for key in grouped: 
         paths = grouped[key]
         base, eyes, mouth = '', [], []
@@ -41,9 +41,9 @@ def build_file(base_path='assets/Ann/'):
                 'mouth' : mouth,
                 'mouthpos' : 0
             }
-            data_model.append(dm)
-            # data_model.setdefault(outfitnum, [])
-            # data_model[outfitnum].append(dm)
+            # data_model.append(dm)
+            data_model.setdefault(outfitnum, [])
+            data_model[outfitnum].append(dm)
     open(base_path[:-1]+"data.json", 'w').write(json.dumps(data_model))
 
 def base_subfolder(base_path='assets/Ann'):

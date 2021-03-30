@@ -1,10 +1,32 @@
-<form [formGroup]="form" (ngSubmit)="submit()">
-    <label for="chars">Character </label>
-    <select (change)="charChanged($event.target.value)" formControlName="chars" id="chars">
-      <option *ngFor="let c of chars;" [value]="c.value">
+<form #myForm="ngForm" (ngSubmit)="submit()">
+    
+    
+    
+    <label>Character </label>
+    <select [(ngModel)]="selections.char" name='char-select'>
+      <option *ngFor="let c of chars;" [ngValue]="c.value">
           {{c.name}}
+      </option>
+    </select>
+    
+    
+    
+    <label>Outfit </label>
+    <select [(ngModel)]="selections.outfit" name='outfit-select'>
+      <option *ngFor="let c of selections.char | keyvalue;" [ngValue]="c.value">
+          {{c.key}}
+      </option>
+    </select>
+    
+    
+    <label>Pose </label>
+    <select [(ngModel)]="selections.pose" name='pose-select'>
+      <option *ngFor="let c of selections.outfit;" [ngValue]="c">
+          {{c.posenum}}
       </option>
     </select>
   
     <button>submit</button>
   </form>
+
+  <p>{{this.selections}}</p> 

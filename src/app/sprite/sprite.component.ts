@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import AnnData from '../../assets/Anndata.json';
 
-interface Sprite {
+export interface Sprite {
 
     "outfitname": String;
     "outfitnum": String;
@@ -21,7 +21,7 @@ interface Sprite {
 })
 export class SpriteComponent implements OnInit {
 
-    sprites: Sprite[] = AnnData;
+    sprites: Sprite[] = AnnData['8000'];
     
     outfitnum = '0000';
     posenum = '01';

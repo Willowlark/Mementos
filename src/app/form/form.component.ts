@@ -7,6 +7,7 @@ import {
   ValidatorFn
 } from '@angular/forms';
 import AnnData from '../../assets/Anndata.json';
+import { Sprite } from '../sprite/sprite.component';
 
 
 @Component({
@@ -15,28 +16,23 @@ import AnnData from '../../assets/Anndata.json';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-  form: FormGroup;
-  chars = [];
-
-  constructor(private formBuilder: FormBuilder) {
-    this.form = this.formBuilder.group({
-      chars: ['']
-    });
+  
+    chars = [
+        {"name": "", "value": {}},
+        {"name": "Ann", "value": AnnData}
+    ];
     
-    this.chars = this.getChars();
-  }
+    selections = {
+        char: {},
+        outfit : {},
+        pose: []
+    };
   
-  getChars() {
-      return [
-          {"name": "Ann", "value": AnnData}
-      ];
-  }
-  
-  charChanged(selectedValue:string) {
-      console.log(selectedValue);
-  }
+//   charChanged(selectedValue:[]) {
+//       console.log(selectedValue);
+//   }
 
   submit() {
-    console.log(this.form.value);
+    console.log("Boop");
   }
 }
